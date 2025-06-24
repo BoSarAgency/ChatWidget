@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Widget Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background-color: #f0f2f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .config-example {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+            margin: 20px 0;
+        }
+        .config-example h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid #e9ecef;
+        }
+    </style>
+    
+    <!-- Chat Widget Configuration -->
+    <script>
+        window.ChatWidgetConfig = {
+            title: "Support Chat",
+            logo: null, // You can add a logo URL here
+            initialMessage: "Hi there! 👋 How can I help you today?",
+            color: "#28a745", // Green theme
+            userMessageBgColor: "#28a745",
+            userMessageTextColor: "#ffffff",
+            assistantMessageBgColor: "#f1f3f4",
+            assistantMessageTextColor: "#333333",
+            apiURL: "http://localhost:3000/messages"
+        };
+    </script>
+    
+    <!-- Chat Widget CSS -->
+    <link rel="stylesheet" href="dist/chat-widget.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Chat Widget Test Page</h1>
+        
+        <p>This is a test page to demonstrate the chat widget functionality. The chat widget should appear as a floating button in the bottom-right corner of the page.</p>
+        
+        <div class="config-example">
+            <h3>Configuration Options</h3>
+            <p>The chat widget can be configured by setting <code>window.ChatWidgetConfig</code> before loading the widget script:</p>
+            <pre><code>&lt;script&gt;
+window.ChatWidgetConfig = {
+    title: "Support Chat",                    // Header title
+    logo: null,                              // Optional logo URL
+    initialMessage: "Hi! How can I help?",   // First message shown
+    color: "#28a745",                        // Primary color (header, buttons)
+    userMessageBgColor: "#28a745",           // User message background
+    userMessageTextColor: "#ffffff",         // User message text color
+    assistantMessageBgColor: "#f1f3f4",     // Assistant message background
+    assistantMessageTextColor: "#333333",   // Assistant message text color
+    apiURL: "http://localhost:3000/messages" // API endpoint
+};
+&lt;/script&gt;</code></pre>
+        </div>
+        
+        <div class="config-example">
+            <h3>API Requirements</h3>
+            <p>The chat widget expects a POST endpoint that:</p>
+            <ul>
+                <li>Accepts JSON payload: <code>{"threadId": "string", "content": "string"}</code></li>
+                <li>Returns JSON response: <code>{"content": "string"}</code></li>
+                <li>For testing, start a server at <code>http://localhost:3000/messages</code></li>
+            </ul>
+        </div>
+        
+        <div class="config-example">
+            <h3>How to Use</h3>
+            <ol>
+                <li>Include the configuration script (as shown above)</li>
+                <li>Include the CSS file: <code>&lt;link rel="stylesheet" href="chat-widget.css"&gt;</code></li>
+                <li>Include the JavaScript file: <code>&lt;script src="chat-widget.umd.cjs"&gt;&lt;/script&gt;</code></li>
+                <li>The widget will automatically initialize when the page loads</li>
+            </ol>
+        </div>
+        
+        <p>Click the chat button in the bottom-right corner to test the widget!</p>
+        
+        <p><strong>Note:</strong> For the chat to work properly, you need to have a backend server running at the configured API URL that can handle the message requests.</p>
+    </div>
+    
+    <!-- Chat Widget Script -->
+    <script src="dist/chat-widget.umd.cjs"></script>
+</body>
+</html>
