@@ -20,7 +20,7 @@ function App() {
     userMessageTextColor: "#ffffff",
     assistantMessageBgColor: "#f1f1f1",
     assistantMessageTextColor: "#333333",
-    apiURL: "http://localhost:3000/messages",
+    apiURL: "https://e32c6941-f279-4527-90a1-c441352baff5-00-3saz0r6vecady.janeway.replit.dev/messages",
   };
 
   const config = {

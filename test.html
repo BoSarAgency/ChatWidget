@@ -65,12 +65,12 @@
             userMessageTextColor: "#ffffff",
             assistantMessageBgColor: "#f1f3f4",
             assistantMessageTextColor: "#333333",
-            apiURL: "http://localhost:3000/messages"
+            apiURL: "https://e32c6941-f279-4527-90a1-c441352baff5-00-3saz0r6vecady.janeway.replit.dev/messages"
         };
     </script>
     
     <!-- Chat Widget CSS -->
-    <link rel="stylesheet" href="dist/chat-widget.css">
+    <link rel="stylesheet" href="https://bosar-react-widget.s3.us-west-1.amazonaws.com/chat-widget.css">
 </head>
 <body>
     <div class="container">
@@ -121,7 +121,17 @@ window.ChatWidgetConfig = {
         <p><strong>Note:</strong> For the chat to work properly, you need to have a backend server running at the configured API URL that can handle the message requests.</p>
     </div>
     
+    <!-- Define process for browser compatibility -->
+    <script>
+        if (typeof process === 'undefined') {
+            window.process = { env: { NODE_ENV: 'production' } };
+        }
+        if (typeof global === 'undefined') {
+            window.global = window;
+        }
+    </script>
+
     <!-- Chat Widget Script -->
-    <script src="dist/chat-widget.umd.cjs"></script>
+    <script src="https://bosar-react-widget.s3.us-west-1.amazonaws.com/chat-widget.umd.cjs"></script>
 </body>
 </html>

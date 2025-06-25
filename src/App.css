@@ -127,6 +127,14 @@
   line-height: 1.4;
 }
 
+.message-bubble > p {
+  color: inherit;
+}
+
+.message-bubble > * {
+  color: inherit;
+}
+
 .message.user .message-bubble {
   background-color: #007bff;
   color: white;
